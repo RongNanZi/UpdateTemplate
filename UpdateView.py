@@ -12,7 +12,7 @@ class UpdateView(Frame):
     def create_ui(self):
 
         #原句
-        self.origin_s_ui = Text(height=2, width=100)
+        self.origin_s_ui = Text(height=5, width=100)
         self.origin_s_ui.insert(END, self.model_data.origin_s)
         self.origin_s_ui.pack()
 
@@ -22,18 +22,18 @@ class UpdateView(Frame):
         label_ui = ttk.Label(text='算法生成的模板')
         label_ui.pack()
 
-        self.w_template_ui = Text(height=2, width=100)
+        self.w_template_ui = Text(height=5, width=100)
         self.w_template_ui.insert(END, self.model_data.mis_template)
         self.w_template_ui.pack()
 
         label_t_ui = ttk.Label(text='您的修改')
         label_t_ui.pack()
 
-        self.t_template_ui = Text(height=2, width=100)
+        self.t_template_ui = Text(height=5, width=100)
         self.t_template_ui.insert(END, self.model_data.mis_template)
         self.t_template_ui.pack()
 
-        self.test_result_ui = Text(height=7, width=100)
+        self.test_result_ui = Text(height=10, width=100)
         self.test_result_ui.pack()
 
 
@@ -83,6 +83,15 @@ class UpdateView(Frame):
 
 
 
+    def reload(self):
+        self.origin_s_ui.delete(1.0, END)
+        self.origin_s_ui.insert(END, self.model_data.origin_s)
+        self.w_template_ui.delete(1.0, END)
+        self.w_template_ui.insert(END, self.model_data.mis_template)
+        self.t_template_ui.delete(1.0, END)
+        self.t_template_ui.insert(END, self.model_data.mis_template)
+        self.test_result_ui.delete(1.0, END)
+
 
     def save2file(self):
         '''
@@ -104,6 +113,7 @@ class UpdateView(Frame):
             tk.messagebox.showinfo('入库结果','所有数据都录入')
         else:
             self.model_data = m
+            self.reload()
 
 
 

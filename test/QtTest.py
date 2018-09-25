@@ -1,6 +1,6 @@
 import sys
 from QT.QQ import *
-from debug import *
+from parsed import *
 from QT.ListView import ListView
 
 s = '您的账单日期是2018年12月10日，话费余额20元，消费30元#'

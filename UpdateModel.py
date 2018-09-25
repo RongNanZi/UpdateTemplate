@@ -1,6 +1,6 @@
 
 import pandas as pd
-from debug import *
+from parsed import *
 
 
 
@@ -64,8 +64,8 @@ class UpdateModel(object):
         t_data = t_data.drop_duplicates(['wanted'])
         try:
             t_data.to_csv('template.csv', index=False)
-        except ValueError:
-            return ValueError
+        except Exception as e:
+            return e
 
         return "OK"
 
